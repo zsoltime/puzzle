@@ -1,0 +1,49 @@
+body
+  align-items: center
+  display: flex
+  flex-direction: column
+  height: 100%
+  justify-content: space-around
+  overflow: hidden
+  user-select: none
+
+h1
+  font-weight: 300
+
+.game
+  background-color: $color-primary
+  height: 70vmin
+  list-style: none outside none
+  padding: 0
+  position: relative
+  width: 70vmin
+
+li
+  align-items: center
+  background-color: $color-primary
+  border: 5px solid $color-primary
+  border-radius: 4px
+  display: flex
+  font-size: 6vmin
+  font-weight: 700
+  height: 25%
+  justify-content: center
+  position: absolute
+  text-shadow: 0 0 3px rgba(black, .3)
+  transition: left .1s ease-in, top .1s ease-in
+  width: 25%
+  z-index: 1
+
+  &::after
+    box-shadow: 0 0 10px rgba(black, .1)
+    +pseudo()
+    height: 100%
+    left: 0
+    top: 0
+    width: 100%
+    z-index: -1
+
+@for $i from 0 to 16
+  .tile-#{$i}
+    left: (($i * 25%) % 100)
+    top: ((floor($i / 4) * 25%) % 100)

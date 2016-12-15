@@ -1,0 +1,9 @@
+extends layout
+block title
+  title (12) Puzzle Game
+block content
+  h1 Day 12 - Simple Puzzle
+  ul.game#game
+    each _, i in Array(15)
+      li(class='tile-#{i}', data-value=i)= i+1
+  .stats Moves: #[span#moves 0]
